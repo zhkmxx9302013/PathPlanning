@@ -53,20 +53,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Camera.cs" />
      <Compile Include="Assets\Grid.cs" />
+     <Compile Include="Assets\Heap.cs" />
      <Compile Include="Assets\Node.cs" />
      <Compile Include="Assets\PathFinding.cs" />
+     <Compile Include="Assets\PathRequestManager.cs" />
+     <Compile Include="Assets\Unit.cs" />
+     <None Include="Assets\Model\Humvee Info.txt" />
  <Reference Include="UnityEditor.StandardEvents">
- <HintPath>G:/Unity3d/PathPlanning/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ <HintPath>G:/slam/PathPlanning/PathPlanning/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>G:/Unity3d/PathPlanning/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>G:/slam/PathPlanning/PathPlanning/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>G:/Unity3d/PathPlanning/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+ <HintPath>G:/slam/PathPlanning/PathPlanning/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>G:/Unity3d/PathPlanning/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>G:/slam/PathPlanning/PathPlanning/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>D:/Develop/Unity3d/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

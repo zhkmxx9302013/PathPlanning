@@ -1,17 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Grid : MonoBehaviour {
 	// public Transform player;
+	public bool onlyDisplayPathGizmos;
 	public LayerMask unwalkableMask;
 	public Vector2 gridWorldSize; //30x30
 	public float nodeRadius; // 0.5
 	Node[,] grid;
+	public List<Node> path;
+	public int MaxSize{
+		get{return gridSizeX * gridSizeY;}
+	}
 
 	float nodeDiameter;
 	int gridSizeX, gridSizeY;
-	private void Start() {
+	private void Awake() {
 		nodeDiameter = 2 * nodeRadius; //1
 		gridSizeX = Mathf.RoundToInt(gridWorldSize.x/nodeDiameter); //30
 		gridSizeY = Mathf.RoundToInt(gridWorldSize.y/nodeDiameter); //30
@@ -65,23 +71,39 @@ public class Grid : MonoBehaviour {
 		return neighbours;
 	}
 
-	public List<Node> path;
+	
 	private void OnDrawGizmos() {
-		Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, 1, gridWorldSize.y));
-
-		if(grid != null){
-			//Node playerNode = NodeFromWorldPoint(player.position);
-			foreach(Node n in grid){
-				Gizmos.color = (n.walkable) ? Color.white : Color.red;
-				if(path != null)
-					if(path.Contains(n)){
-						Gizmos.color = Color.black;
-					}
-				// if(playerNode == n){
-				// 	Gizmos.color = Color.cyan;
-				// }
-				Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter - 0.1f));
+		Gizmos.DrawWireCube(transform.position,new Vector3(gridWorldSize.x,1,gridWorldSize.y));
+		if (grid != null && onlyDisplayPathGizmos) {
+			foreach (Node n in grid) {
+				Gizmos.color = (n.walkable)?Color.white:Color.red;
+				Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter-.1f));
 			}
 		}
 	}
+	// 	Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, 1, gridWorldSize.y));
+
+	// 	if(onlyDisplayPathGizmos){
+	// 		if(path != null){
+	// 			foreach(Node n in path){
+	// 				Gizmos.color = Color.black;
+	// 				Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter - 0.1f));
+	// 			}
+	// 		}
+	// 	}else{
+	// 		if(grid != null){
+	// 		//Node playerNode = NodeFromWorldPoint(player.position);
+	// 			foreach(Node n in grid){
+	// 				Gizmos.color = (n.walkable) ? Color.white : Color.red;
+	// 				if(path != null)
+	// 					if(path.Contains(n)){
+	// 						Gizmos.color = Color.black;
+	// 					}
+	
+	// 				Gizmos.DrawCube(n.worldPosition, Vector3.one * (nodeDiameter - 0.1f));
+	// 			}
+	// 		}
+	// 	}
+		
+	// }
 }
